@@ -1,0 +1,84 @@
+[
+    {
+        "flow_name": "flow1",
+        "subflows":
+        [
+            {
+                "subflow_name": "_main_",        
+                "swimlanes": 
+                [
+                    {
+                        "swimlane_type": "pgms",
+                        "swimlane_pgms": ["data maintest1;set sashelp.class;run;",
+                                        "proc print data=maintest1;run;",
+                                        "proc means data=maintest1;run;"
+                                        ]
+                    },
+                    {
+                        "swimlane_type": "subflow",
+                        "swimlane_subflow_name": "subflow1"
+                    },
+                    {
+                        "swimlane_type": "pgms",
+                        "swimlane_pgms": ["data maintest2;set sashelp.class;run;"]
+                    },
+                    {
+                        "swimlane_type": "subflow",
+                        "swimlane_subflow_name": "subflow2"
+                    },
+                    {
+                        "swimlane_type": "pgms",
+                        "swimlane_pgms": ["data maintest2;set sashelp.class;run;",
+                                        "proc print data=maintest2;run;"
+                                        ]
+                    }
+                ]
+            },
+            {
+                "subflow_name": "subflow1",        
+                "swimlanes": 
+                [
+                    {
+                        "swimlane_type": "pgms",
+                        "swimlane_pgms": ["data subtest1;set sashelp.class;run;",
+                                        "proc print data=subtest1;run;",
+                                        "proc means data=subtest1;run;"
+                                        ]
+                    }
+                ]
+            },
+            {
+                "subflow_name": "subflow2",        
+                "swimlanes": 
+                [
+                    {
+                        "swimlane_type": "pgms",
+                        "swimlane_pgms": ["data subtest1;set sashelp.class;run;",
+                                        "proc print data=subtest1;run;",
+                                        "proc means data=subtest1;run;"
+                                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "flow_name": "flow2",
+        "subflows":
+        [
+            {
+                "subflow_name": "_main_",        
+                "swimlanes": 
+                [
+                    {
+                        "swimlane_type": "pgms",
+                        "swimlane_pgms": ["data maintest1;set sashelp.class;run;",
+                                        "proc print data=maintest1;run;",
+                                        "proc means data=maintest1;run;"
+                                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
